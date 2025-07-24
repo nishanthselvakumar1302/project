@@ -1,9 +1,8 @@
-# IPL Data Analysis with Power BI 🏏📊
+# 🏏 IPL Power BI Dashboard Project
 
-This project presents an interactive dashboard analyzing the Indian Premier League (IPL) using Microsoft Power BI. The goal is to extract actionable insights from IPL datasets to understand team performance, player statistics, match trends, and season-wise comparisons.
+This project presents an interactive dashboard analyzing Indian Premier League (IPL) data using **Power BI**. It extracts meaningful insights from match and player data, offering a rich visual experience to understand performance trends across teams and players.
 
 ---
-
 ## 📁 Files in This Repository
 
 | File / Folder | Description |
@@ -13,56 +12,61 @@ This project presents an interactive dashboard analyzing the Indian Premier Leag
 | `README.md`    | Project documentation |
 
 ---
-
 ## 🎯 Project Objective
 
-To perform exploratory data analysis on IPL match and player data using Power BI, transforming raw data into visual stories that provide strategic insights.
+The goal of this project is to perform data analysis and visualization on IPL datasets to identify key trends, top-performing players, and team statistics over multiple seasons.
+
+---
+
+## 📊 Data Pipeline & Architecture
+
+This project follows a structured data engineering and visualization flow:
+
+1. **📥 Data Collection**  
+   - IPL datasets were sourced from [Kaggle](https://www.kaggle.com/), including match summaries, player stats, and ball-by-ball data.
+
+2. **☁️ Cloud Storage (AWS S3)**  
+   - The raw `.csv` files were stored in an **Amazon S3** bucket for secure, scalable storage.
+
+3. **❄️ Data Warehouse (Snowflake)**  
+   - The S3 bucket was connected to **Snowflake**, where data was cleaned, transformed, and pre-aggregated using SQL queries.
+
+4. **🔌 Data Connectivity**  
+   - The refined datasets were connected to **Power BI Desktop** using an appropriate connector or import process.
+
+5. **📊 Dashboard Visualization**  
+   - Visualizations were designed using Power BI's interactive features to showcase stats like top batters, wicket takers, strike rates, team comparisons, etc.
 
 ---
 
 ## 🧩 Project Workflow: Step-by-Step Breakdown
 
 ### 1. **Data Collection**
-- Acquired IPL match and player data from Kaggle or other cricket data repositories.
-- Combined datasets including:
-  - Match-level details (venue, teams, toss, winner, etc.)
-  - Player statistics (runs, wickets, strike rate, economy, etc.)
-
-### 2. **Data Cleaning and Preparation**
-- Cleaned and standardized columns in Power Query Editor.
-- Removed null values, fixed inconsistent team/player names.
-- Created relationships between tables:
-  - Matches ↔ Players
-  - Matches ↔ Deliveries (ball-by-ball data)
+- Collected match-level, player-level, and ball-by-ball data from Kaggle.
+  
+### 2. **Data Cleaning & Preparation**
+- Used Snowflake to clean column names, remove nulls, and create relations.
+- Ensured team and player names were standardized.
 
 ### 3. **Data Modeling**
-- Built a star schema model using:
-  - Fact tables: Matches, Deliveries
-  - Dimension tables: Teams, Players, Seasons
-- Defined relationships with appropriate cardinality and cross-filter direction.
-- Created DAX measures for:
-  - Total runs, wickets, strike rate
-  - Win percentage, average scores, boundaries
+- Built a star schema with fact tables (matches, deliveries) and dimension tables (teams, players, seasons).
+- Created DAX measures for runs, wickets, averages, strike rates, etc.
 
 ### 4. **Dashboard Design**
-Designed a multi-page interactive dashboard with:
-- **Page 1**: Overview – Season summary, total matches, champions
-- **Page 2**: Team Performance – Wins, toss decisions, venue stats
-- **Page 3**: Player Stats – Orange Cap, Purple Cap, best strike rates
-- **Page 4**: Match Insights – Toss impact, margin of victory, trends
-- **Page 5**: Comparisons – Team head-to-head stats
+- Created four main pages:
+  - **Top Batters**
+  - **Top Bowlers**
+  - **Super Striker & High Average**
+  - **Team Comparison**
 
 ### 5. **Visualization Tools Used**
-- Bar Charts, Line Charts, Pie Charts
-- Slicers and filters for interactivity
-- KPI Cards and custom visuals
-- Drill-through for match and player deep-dives
+- Bar charts, line charts, donut charts, KPI cards, slicers, and bubble charts.
+- Enabled cross-filtering and drill-through for interactivity.
 
-### 6. **Insights Derived**
-- Teams that win the toss and choose to bowl first often have higher win rates.
-- Certain players consistently perform across seasons (e.g., top run scorers).
-- Venues like Wankhede favor high scores; others are more bowling-friendly.
-- Teams with stable captains and top-order strength dominate more matches.
+### 6. **Key Insights**
+- Players with high strike rates often also have high average scores.
+- Certain teams consistently take more wickets and hit more sixes.
+- Some venues favor chasing teams based on toss decisions and outcomes.
 
 ---
 
@@ -70,14 +74,22 @@ Designed a multi-page interactive dashboard with:
 
 > _Screenshots below exported from the Power BI report:_
 
-![top batters](images/Screenshot 2025-07-24 103100.png)
-![Top Batsmen](images/top_batsmen.png)
-![Venue Analysis](images/venue_analysis.png)
+### 🔹 Top Batters  
+![Top Batters](images/top_batters.png)
+
+### 🔹 Top Bowlers  
+![Top Bowlers](images/top_bowlers.png)
+
+### 🔹 Super Striker & High Average  
+![Super Striker](images/Super_striker.png)
+
+### 🔹 Team Comparison  
+![Team Comparison](images/Team_Comparison.png)
 
 ---
 
 ## 🛠️ How to Use This Project
 
-1. **Download or Clone the Repository**
+1. **Clone the Repository**
    ```bash
    git clone https://github.com/yourusername/ipl-powerbi-dashboard.git
