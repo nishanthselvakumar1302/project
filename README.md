@@ -70,7 +70,7 @@ Designed a multi-page interactive dashboard with:
 
 > _Screenshots below exported from the Power BI report:_
 
-![images](images/)
+![top batters](images/Screenshot 2025-07-24 103100.png)
 ![Top Batsmen](images/top_batsmen.png)
 ![Venue Analysis](images/venue_analysis.png)
 
