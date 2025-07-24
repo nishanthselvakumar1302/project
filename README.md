@@ -7,7 +7,7 @@ This project presents an interactive dashboard analyzing Indian Premier League (
 
 | File / Folder | Description |
 |---------------|-------------|
-| `ipl (1).pbix` | Main Power BI project file |
+| `ipl.pbix` | Main Power BI project file |
 | `images/`      | Exported visuals and dashboard screenshots |
 | `README.md`    | Project documentation |
 
